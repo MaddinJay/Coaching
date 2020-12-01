@@ -818,7 +818,7 @@ ENDINTERFACE.
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
 |------------|-----------------------|-------------|------------------|
-| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (class). Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.  Avoid disinformation and be clear about Level of abstraction. |  Encapsulate Record, Replace Primitive with Object | R D 203 , R D 217|
+| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (class). Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.  Avoid disinformation and be clear about Level of abstraction. |  Encapsulate Record, Replace Primitive with Object, Extract Variable, Move Field, Rename Field| R D 203 , R D 217, R D 159, R D 251, R D 289|
 
 > [Enumerations](sub-sections/Enumerations.md)
 > describes common enumeration patterns
