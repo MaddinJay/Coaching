@@ -770,13 +770,14 @@ IF abap_type = 'D'.
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
 |------------|-----------------------|-------------|------------------|
-| Naming   | Good names are essentiell for Clean Code. Readers are missleaded by bad names. Names should be clear, constant in the code and should exress the intention of the coder. Maybe the design is not clear if difficult to find. Long names should be avoided. | Rename Field | R D 289|
+| Naming   | Good names are essentiell for Clean Code. Readers are missleaded by bad names. Names should be clear, constant in the code and should exress the intention of the coder. Maybe the design is not clear if difficult to find. Long names should be avoided. Avoid encodings, use pronounceable names. Hide the magic numbers behind well-named constants, to communicate what you mean. Avoid errors by changing constant-value instead of every single value. Expandable for new values.| Rename Field | R D 289|
 > Read more in _Chapter 17: Smells and Heuristics: G25:
 > Replace Magic Numbers with Named Constants_ of [Robert C. Martin's _Clean Code_].
 
 ### Prefer enumeration classes to constants interfaces
 
 > [Clean ABAP](#clean-abap) > [Content](#content) > [Constants](#constants) > [This section](#prefer-enumeration-classes-to-constants-interfaces)
+
 
 ```ABAP
 CLASS /clean/message_severity DEFINITION PUBLIC ABSTRACT FINAL.
@@ -817,7 +818,7 @@ ENDINTERFACE.
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
 |------------|-----------------------|-------------|------------------|
-| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (structure, class). Focus on symmetrie.  |  Encapsulate Record, Replace Primitive with Object | R D 203 , R D 217|
+| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (class). Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.  Avoid disinformation and be clear about Level of abstraction. |  Encapsulate Record, Replace Primitive with Object | R D 203 , R D 217|
 
 > [Enumerations](sub-sections/Enumerations.md)
 > describes common enumeration patterns
@@ -873,7 +874,7 @@ ENDDO.
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
 |------------|-----------------------|-------------|------------------|
-| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (structure, class). Focus on symmetrie.  |  Encapsulate Record, Replace Primitive with Object | R D 203 , R D 217|
+| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (structure). Order the constants at high level of abstraction. Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.   |  Encapsulate Record, Replace Primitive with Object, Extract Variable, Move Field, Rename Field| R D 203 , R D 217, R D 159, R D 251, R D 289|
 
 > Read more in _Chapter 17: Smells and Heuristics: G27: Structure over Convention_ of [Robert C. Martin's _Clean Code_].
 
