@@ -817,8 +817,8 @@ ENDINTERFACE.
 > Smell Codes
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
-|------------|-----------------------|-------------|------------------|
-| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (class). Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.  Avoid disinformation and be clear about Level of abstraction. |  Encapsulate Record, Replace Primitive with Object, Extract Variable, Move Field, Rename Field| R D 203 , R D 217, R D 159, R D 251, R D 289|
+|------------|-----------------------|----------------------|-----------|
+| Data Clumps   | Dependent data should not be spread over the hole code. It should find same home (class). Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born. Avoid disinformation and be clear about the level of abstraction. |  Encapsulate Record<br/> Replace Primitive with Object<br/> Extract Variable<br/> Move Field<br/> Rename Field| R D 203<br/>R D 217<br/>R D 159<br/>R D 251<br/>R D 289|
 
 > [Enumerations](sub-sections/Enumerations.md)
 > describes common enumeration patterns
@@ -874,7 +874,7 @@ ENDDO.
 
 | Smell Code |  Beschreibung   |  Refactorisierung | Referenz         |
 |------------|-----------------------|-------------|------------------|
-| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (structure). Order the constants at high level of abstraction. Focus on symmetrie.  A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.   |  Encapsulate Record, Replace Primitive with Object, Extract Variable, Move Field, Rename Field| R D 203 , R D 217, R D 159, R D 251, R D 289|
+| Data Clumps   | Dependent data should not be spread over the hole code. Dependent data should find same home (structure). Order the constants at high level of abstraction. Focus on symmetrie. A good test is to consider deleting one of the data values: if you did this, would the others make any sense? If they don't, it's a sure sign that you have an object that's dying to be born.   |  Encapsulate Record<br/>Replace Primitive with Object<br/>Extract Variable<br/>Move Field<br/>Rename Field| R D 203<br/>R D 217<br/>R D 159<br/>R D 251<br/>R D 289|
 
 > Read more in _Chapter 17: Smells and Heuristics: G27: Structure over Convention_ of [Robert C. Martin's _Clean Code_].
 
