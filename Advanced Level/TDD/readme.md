@@ -2,6 +2,8 @@
 
 ## There is not only one TDD
 
+Gemäss ICE Model: "Der Mensch steht im Foklus, es gibt keine Regeln oder Vorgaben"
+
 "Erkennt der Fisch, ob es Wasser gibt?"
 
 Kampkünste haben ihren Ursprung in der Fitness
