@@ -24,6 +24,12 @@ Je nach Komplexität werden unterschiedliche TDD-Techniken angewandt:
 
 ![Cynefin Model](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Cynefin%20Model.PNG)
 
+## Transformation Priority Premise
+
+Methodik, um das produktive Coding während des TDD-Zyklus robuster und qualitativ hochwertiger zu machen.
+
+![Transformation Prioirty Premise](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Transformation%20Priority%20Premise.jpg)
+
 # Architecture
 
 ## Hexagonal Archicture
