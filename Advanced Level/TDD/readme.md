@@ -30,6 +30,13 @@ Methodik, um das produktive Coding während des TDD-Zyklus robuster und qualitat
 
 ![Transformation Prioirty Premise](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Transformation%20Priority%20Premise.jpg)
 
+## ZOMBIES
+
+Akronym, dessen Methodik für die London School of TDD steht. Hilft, die Testfälle besser aufzubauen.
+
+![ZOMBIES] (https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/ZOMBIES.jpg)
+
+
 # Architecture
 
 ## Hexagonal Archicture
