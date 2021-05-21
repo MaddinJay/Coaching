@@ -45,4 +45,13 @@ Akronym, dessen Methodik für die London School of TDD steht. Hilft, die Testfä
 
 ![Hexagonal Architecture](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Hexagonal%20Architecture%20-%20Grafik.jpg)
 
+# Methods
+
+## PDCA
+
+Methodik, um einen Entwicklungszyklus zu steuern. Unterstützt bei der Realisierung von Modifikationen.
+
+![PDCA](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/PDCA.jpg)
+
+
 
