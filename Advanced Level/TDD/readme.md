@@ -30,6 +30,6 @@ Je nach Komplexität werden unterschiedliche TDD-Techniken angewandt:
 
 ![Hexagonal Architecture](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Hexagonal%20Architecture.jpg)
 
-![Hexagonal Architecture](Hexagonal Architecture - Grafik.jpg)
+![Hexagonal Architecture](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/TDD/Hexagonal%20Architecture%20-%20Grafik.jpg)
 
 
