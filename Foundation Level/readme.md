@@ -18,9 +18,19 @@ Splitting up your code in methods that integrate or operate.
 
 ## Dev Flow
 
+![Dev Flow](https://github.com/MaddinJay/Coaching/blob/main/Foundation%20Level/Developer%20Flow.PNG)
+
 ## High Performance Habits
 
+![High Performance Habits](https://github.com/MaddinJay/Coaching/blob/main/Foundation%20Level/High%20Performance%20Habits.PNG)
+
 ## POMODORO
+
+Work with a task list:
+ - Pick tasks for next session
+ - Add tasks if new ones appear 
+
+![Pomodoro Technique](https://github.com/MaddinJay/Coaching/blob/main/Foundation%20Level/Pomodoro%20Technique.PNG)
 
 
 
