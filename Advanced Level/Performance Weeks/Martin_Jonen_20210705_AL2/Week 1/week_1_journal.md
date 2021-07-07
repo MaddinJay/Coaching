@@ -39,3 +39,22 @@ Lesson Learned:
  - Wlaking Skeleton gibt dem, User ein schnelles visuelles Feedback.
  - Auch wenn der Algorithmus noch nicht funktioniert, kann der User sich vorstellen, wie das Programm abläuft und köännte nun schon Designvorschläge machen.
  - Fokus auf saubere Reportstruktur und auf einen sauberen Flow. Den Algorithmus bewusst hinten angestellt. 
+
+# Day 3
+
+Vorbereitung:
+ - TestInbox mit 3 Lösungsalternativen verwendet
+ - Alain Kays "Everything is an Object" berücksichtigt
+ - Akzeptanztest definiert, finaler Test
+ - 
+Umsetzung:
+ - Akzeptanztest Light aufgebaut ("Erster Buchstabe wird weiterlgeleitet")
+ - Den Akzeptanztest immer weiter modifiziert, so dass der Endlösung angenähert wurde.
+ - Ergebnisobjekt erst einmal runtergebrochen auf eine Zeile, Schritt für Schritt Input und Output eingeführt.
+
+Lesson Learned:
+ - Growing Acceptancetest ist noch gut
+ - Bei einfachen Problemen bruacht es nicht ewig viele Tests
+ - Flow konnt gut beibehalten werden.
+ - Ansatz mit 3 Lösungsvarianten sehr wertvoll
+ - TestInbox effektiv, wenn sie auch einfach erscheint 
