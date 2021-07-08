@@ -58,3 +58,23 @@ Lesson Learned:
  - Flow konnt gut beibehalten werden.
  - Ansatz mit 3 Lösungsvarianten sehr wertvoll
  - TestInbox effektiv, wenn sie auch einfach erscheint 
+
+# Day 4
+
+Vorbereitung:
+ - PIZZA verwendet um Problem zu analysieren
+ - Fokus auf Outside/In
+ - Definition Akzeptanztest 
+
+Umsetzung:
+ - Fokus auf Testklasse und Akzeptanztest
+ - Report mit Eingabe, Converting Logic und Protocol erstellt
+ - Erst den Test Grün gesetzt, dann die Integration in den Report durchgeführt. Integration sehr leicht dann.
+ - Fokus auf "Everything is an object" -> Input und Output als Objekt definiert.
+ - Nach erfolgreicher Integration der Klassen in den REport wird der Akzeptanztest gestrippt, um die Zähllogik einzubauen
+
+Lesson Learned:
+ - Integration der Klasse im Report sehr wertvoll, da so der ganze Prozess definiert und gesehen werden kann
+ - Erste Visualisierung durch "mock-Daten" gibt ein gutes Gefühl, dass der Report läuft und für User sicherlich wertvoll
+ - Strippen des Akzeptanztests (sukzessive Erschliessung der Character, beginnend mit String "D" -> "Da" lässt den Algorihtmus langsam wachsen und gitb volle Kontrolle über den Entwicklungsprozess
+ - Anwendung des MESSAGE und Tell Don't Ask Prinzips verschiebt die Logik in die entsprechenden Objekte.
