@@ -78,3 +78,27 @@ Lesson Learned:
  - Erste Visualisierung durch "mock-Daten" gibt ein gutes Gefühl, dass der Report läuft und für User sicherlich wertvoll
  - Strippen des Akzeptanztests (sukzessive Erschliessung der Character, beginnend mit String "D" -> "Da" lässt den Algorihtmus langsam wachsen und gitb volle Kontrolle über den Entwicklungsprozess
  - Anwendung des MESSAGE und Tell Don't Ask Prinzips verschiebt die Logik in die entsprechenden Objekte.
+
+
+# Day 5
+
+Vorbereitung:
+ - Fokus heute auf der Umsetzung, nur kurz die Aufgabe nochmal review passieren lassen.
+ - Fokus auf dem Algorithmus
+
+Umsetzung:
+ - Akzeptanztest erstellt, wobei dieser sukzessive aufgebaut wurde ( 'D' -> 'Da' )
+ - TPP angewendet. Erst Konstanten gesetzt, dann while Schleife integriert
+ - auf Grundlagen geachtet (IOSP, Tell don't ask)
+ - TPP angewendet
+ - Flow konnte aufrecht erhalten bleiben. Problem mit der Interpretation des Leerzeichen auf später verschoben "TODO"
+ - Bisschen holperich bei der Algorithmusintegration. Problem auf einmal zu gross gewesen, versucht auf das wesentliche zu konzentrieren
+ - zum Schluss Membervariablen eingeführt, um Übersicht wieder herzustellen
+ - Inputstring und Ergebnistabelle soll im Anschluss als Objekt erfasst werden, hier verschoben auf später
+
+Lesson Learned:
+ - Vorbereitung und Visualisierung des Problems essentiell
+ - Akzeptanztest sukzessive aufbauen dient der Übersicht. Kleine Schritte. Nur ein Test, der gewartet werden muss.
+ - Zu wenig "Tell don't ask" angewendet. 
+ - Die Integration von Objekten schneller realisieren, dient dem Handling der Daten (Ergebnis-Objekt sinnvoll hier) 
+ - 
