@@ -40,3 +40,26 @@ Lesson Learned:
  - Mit dem Vorwissen von gestern deutlich einfacher umzusetzen heute
  - Übung gestern sehe ich als Warm Up für die Umsetzung heute. Reinfühlen, Problem verstehen, Überblick verschaffen durch konkrete Umsetzung
  - Neuer Ansatz viel erfolgsversprechender als der Ansatz von gestern -> Mut aufbringen, Lösungen einfach weg zuwerfen und neu anzufangen 
+
+
+# Day 8
+
+Vorbereitungen:
+ - Fokus auf Observer Pattern: Informiere Nachbarn, dass Zelle aktiviert bzw. gelöscht wurde
+ - Feldbelegung wie gestern beibehalten
+ - Fokus heute vorwiegend auf flüssige Umsetzung, ohne gross vorab zu analysieren. Problem wird klarer.
+
+Umsetzung:
+ - Zwei UNIT-Tests subzessive angelegt, Zelle als Nachbar hinzufügen, falls Zelle aktiviert wird; Zelle als Nachbar löschen, wenn Zelle stirbt
+ - Zwei Akzeptanztests definiert, diese dann als Tests angelegt
+ - Aktive Nachbarn diesmal in Liste von Nachbarn in der Zelle gepflegt
+ - Ersten UNIT-Test dann erweitert um Liste von Objekten. Zu Beginn nur einen Nachbarn erfasst
+ - Idee zum Weitermachen: Liste der Nachbarn ebenfalls in einem Objekt festhalten. Vererbung von YCL_CELL.
+
+Lesson Learned:
+ - Observer Pattern gut anwednbar. Initiale Idee bestätigt sich gut.
+ - Prinzip der kleinen Schritte ist sehr gut anwendbar. So entsteht ein guter Flow
+ - Programmierung selbst wird flüssiger. Regelmässige Übung zahlt sich aus.
+ - Everythin is an Object, ein sehr sinnvolles Prinzip. Die Objekte sind so leicht zu handeln.
+ - Für L
+ - Keine Hektik, auch wenn Zeit abläuft. Lieber in Qualittät als Quantität investieren.
