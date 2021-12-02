@@ -5,17 +5,74 @@ Test Doubles sind vorbestimmte Objekte, welche im betesteten Coding an Stelle vo
 Unterschieden werden Test Doubles zwischen:
 - Dummies
 - Stubs
-- Fakes
 - Mocks 
+- Fakes
 
 ## Dummies
-Dummies sind "leere" Objekte, welche in Funktionsaufrufen übergeben werden. Sie beinhalten keinerlei Daten und werden im Mainflow des Tests nicht explizit durch Zugriff auf das Objekt verwendet. Sie werden lediglich für das Füllen der Parameterlisten von Funktionen verwendet und ermöglichen so, dass fehlerfreie Ausführen eines unter Test stehenden Objektes.
+Dummies können für integrierte Objekte, von denen die CUT (Component Under Test) abhängt, verwendet werden, wenn im Test nicht auf diese Objekte zugegriffen werden muss. Für den Test sind sie nicht weiter von Relevanz, ausser das ohne ihre Instanziierung der Testfall der CUT nicht funktionieren würde.
 
-## Fakes
-Fake Objekte beinhalten eine "abgespeckte" Implementierung der integrierten Objekte. Lediglich die für das Testen benötigten Methoden oder Variablen werden so gesetzt, dass die Ausführung des betesten Objekts fehlerfrei durchläuft und das betestete Objekt aktionsfähig ist.  
+**Class under Test:**
+```js
+CLASS ycl_test_dummy DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      format IMPORTING io_messenger            TYPE REF TO ycl_messenger
+             RETURNING VALUE(rv_formated_text) TYPE string.
+
+  PRIVATE SECTION.
+    DATA:
+      mv_formated_text TYPE string.
+ENDCLASS.
+
+CLASS ycl_test_dummy IMPLEMENTATION.
+
+  METHOD format.
+    " Do something with io_messenger, does not interfere expected result ...
+
+    " Format Text for Return ...
+    mv_formated_text = 'Hallo'.
+
+    rv_formated_text = mv_formated_text.
+  ENDMETHOD.
+
+ENDCLASS.
+```
+
+**Test Class with Dummy:**
+```js
+CLASS ltc_dummy DEFINITION FINAL FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+
+  PRIVATE SECTION.
+    DATA:
+        mo_cut TYPE REF TO ycl_test_dummy.
+    METHODS:
+      setup,
+      test_format_transformation FOR TESTING.
+ENDCLASS.
+
+
+CLASS ltc_dummy IMPLEMENTATION.
+
+  METHOD setup.
+    mo_cut = NEW #( ).
+  ENDMETHOD.
+
+  METHOD test_format_transformation.
+    cl_abap_unit_assert=>assert_equals(
+        exp = 'Hallo'
+        act = mo_cut->format( NEW ycl_messenger( ) ) ).
+  ENDMETHOD.
+
+ENDCLASS.
+```
 
 ## Stubs
-Stub Objekte beinhalten fixe Antworten auf Methodenaufrufe. Gewöhnlich antworten sie nicht auf alle Anfragen von aussen, lediglich für die Tests des SUT (System under Test) relevanten Methoden und Variablen werden implementiert. Stubs werden **Spies** genannt, wenn sie sich zusätzlich Informationen zu Aufrufen von Methoden merken. In SAP werden Stubs gewöhnlich mit Lokalen Test-Double Klassen implementiert.
+Stub Objekte beinhalten fixe Antworten auf Methodenaufrufe. Gewöhnlich antworten sie nicht auf alle Anfragen von aussen, lediglich die für die Tests des CUT relevanten Methoden und Variablen werden implementiert. Stubs werden **Spies** genannt, wenn sie sich zusätzlich Informationen zu Aufrufen von Methoden merken. In SAP werden Stubs gewöhnlich mit Lokalen Test-Double Klassen implementiert.
 
 **Class under Test:**
 ```js
@@ -84,7 +141,7 @@ ENDCLASS.
 
 ```
 ## Mocks 
-Mock Objekte ermöglichen die Defintion einer Erwartung an den Aufruf von Methoden. Für Methodenaufrufe mit spezif definierten Parametern liefern sie eine vordefinierte Antwort zurück. Werden Methoden mit abweichenden Parmetern aufgerufen, kommt es im Testfall zu einem Fehler. Mock Objekte sind flexibler einsetzbar als Stubs, weil ihr Verhalten individuell an den Testfall anpassbar ist. Stubs beinhalten ein starres, vordefiniertes Verhalten. In SAP nutzt man für die Instanziierung von Mock Objekten das TESTDOUBE Framework.
+Mock Objekte ermöglichen die Defintion einer Erwartung an den Aufruf von Methoden. Für Methodenaufrufe mit spezifisch definierten Parametern liefern sie eine vordefinierte Antwort zurück. Werden Methoden mit abweichenden Parametern aufgerufen, kommt es im Testfall zu einem Fehler. Mock Objekte sind flexibler einsetzbar als Stubs, weil ihr Verhalten individuell an den Testfall angepasst werden kann. Stubs beinhalten ein starres, vordefiniertes Verhalten. In SAP nutzt man für die Instanziierung von Mock Objekten das TESTDOUBE Framework.
 
 **Class under Test:**
 ```js
@@ -173,7 +230,101 @@ CLASS ltc_test_double_mock IMPLEMENTATION.
 
 ENDCLASS.
 ```
+
+## Fakes
+Fake Objekte beinhalten eine "abgespeckte" Implementierung der integrierten Objekte, um die CUT betesten zu können. Es handelt sich hierbei um Objekte, die "ausserhalb unserer Reichweite" liegen. In SAP wäre dies beispielsweise das Schreiben des Applikations-Logs oder die Interaktion mit der Datenbank. Fake Objekte können sich wie Dummies, Stubs bzw. Spies oder Mocks verhalten.
+
+**Class Under Test:**
+```js
+CLASS ycl_test_fake DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor IMPORTING io_application_server TYPE REF TO yif_application_server,
+      log_message IMPORTING iv_message TYPE string.
+      
+  PRIVATE SECTION.
+    DATA:
+      mo_application_server TYPE REF TO yif_application_server.
+      
+ENDCLASS.
+
+CLASS ycl_test_fake IMPLEMENTATION.
+
+  METHOD constructor.
+    mo_application_server = io_application_server.
+  ENDMETHOD.
+
+  METHOD log_message.
+    mo_application_server->log_message( iv_message ).
+  ENDMETHOD.
+
+ENDCLASS.
 ```
+
+**Fake Object (Spy Object):**
+```js 
+CLASS ltd_application_server DEFINITION FOR TESTING.
+
+  PUBLIC SECTION.
+    INTERFACES: yif_application_server.
+    METHODS: check_was_logged RETURNING VALUE(rv_return) TYPE abap_bool.
+
+  PRIVATE SECTION.
+    DATA:
+      mv_log_flag TYPE abap_bool.
+
+ENDCLASS.
+
+CLASS ltd_application_server IMPLEMENTATION.
+
+  METHOD yif_application_server~log_message.
+    mv_log_flag = abap_true.
+  ENDMETHOD.
+
+  METHOD check_was_logged.
+    rv_return = mv_log_flag.
+  ENDMETHOD.
+
+ENDCLASS.
+```
+
+**Test Class:**
+```js
+CLASS ltc_fake DEFINITION FINAL FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+
+  PRIVATE SECTION.
+    DATA:
+      mo_cut                TYPE REF TO ycl_test_fake,
+      mo_application_server TYPE REF TO ltd_application_server.
+    METHODS:
+      setup,
+      test_log_message FOR TESTING.
+ENDCLASS.
+
+
+CLASS ltc_fake IMPLEMENTATION.
+
+  METHOD setup.
+    mo_application_server = NEW ltd_application_server( ).
+    mo_cut                = NEW #( mo_application_server ).
+  ENDMETHOD.
+
+  METHOD test_log_message.
+    mo_cut->log_message( iv_message = 'Test' ).
+    cl_abap_unit_assert=>assert_equals(
+        exp = abap_true
+        act = mo_application_server->check_was_logged( ) ).
+  ENDMETHOD.
+
+ENDCLASS.
+```
+
+
 
 
 
