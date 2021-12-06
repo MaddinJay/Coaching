@@ -324,6 +324,42 @@ CLASS ltc_fake IMPLEMENTATION.
 ENDCLASS.
 ```
 
+# Outside-In TDD
+
+Beim Outside-In TDD, auch London School of TDD genannt, geht es darum, von ausserhalb der Business-Logik kommend die am Main-Flow beteiligten Komponenten zu identifzieren und deren Schnittstellen (Ports) zu definieren. Die ausserhalb der Business-Logik liegenden Komponenten werden auch Adapter genannt und können bei defnierten Ports der Business-Logik beliebig ausgetauscht werden. Dies birgt folgende Vorteile:
+
+- Der User kann schnell Feedback geben. Dies kann bereits am Anfang des Projekts grosse Vorteile, technisch wie phychologisch, bringen.
+- Die integrierten Komponenten (User-Side, Business-Logic und Server-Side) können unabhängig von einander implementiert und getestet werden.
+
+Zur Illustration des Aufbaus der Komponenten und deren Beziehung kann das Hexagonale Architektur - Prinzip verwendet werden. Dieses Prinzip hat den Vorteil, dass die einzelnen Komponenten "Outside" und "Inside" besser illustriert werden können.
+
+Als Ports werden die Schnittstellen bezeichnet, die von von der Business-Logik-Seite definiert werden. Zumeist werden diese Schnittstellen über Interfaces definiert. Als Adapter werden jegliche Komponenten bezeichnet, die an die Ports "angedockt" werden. Für die Komponente der Business-Logik spielt es keine Rolle, wie die Adapter definiert sind. Dies müssen lediglich die Ports richtig bedienen. Dies spiegelt die Asymmetrie im Verhältnis Business-Komponete zu den Adaptern wieder.
+
+AWalking Skeleton noch integrieren. 
+
+## Ein Beispiel
+
+Als Beispiel sei eine Abfrage von Früchten genannt, die anhand ihrer enthaltenen Vitamine aufgelistet werden.
+
+Der User fragt mit einem Vitamin an und es wird eine Liste von Früchten ausgegeben. Der Einfach halber wird ein Report mit einem Startscreen implementiert, welche ein Protokoll ausgibt.
+
+Die einzelnen Komponenten nehmen die Rollen wie folgt ein:
+
+Enthaltene Ports:
+
+Enthaltene Adapter:
+ - User-Side:
+ - Server-Side
+ 
+Business-Logik:
+
+Die Business-Logik ist für die erste Visualisierung nicht relevant und wird gefakt. Im weiteren Verlauf wird diese TDD-getrieben ausimplementiert. Bei der TDD-Implementierung kann das Prinzip ZOMBIES angewendet werden.
+
+
+
+
+
+
 
 
 
