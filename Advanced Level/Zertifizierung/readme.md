@@ -1,6 +1,6 @@
 # Test Doubles
 
-Test Doubles sind vorbestimmte Objekte, welche im betesteten Coding an Stelle von integrierten Objekten verwendet werden. Test Doubles werden dazu verwendet, um Abhängigkeiten im produktiven Coding zu brechen. In der Literatur sind unterschiedliche Interpretationen der unterschiedlichen Typen von Test-Doubles zu finden. Wir verwenden hier die Definition nach Martin Fowler. 
+Test Doubles sind vorbestimmte Objekte, welche an Stelle von integrierten Objekten im betesteten Coding verwendet werden. Test Doubles werden dazu verwendet, um Abhängigkeiten im produktiven Coding zu brechen und so Coding testbar zu machen. Mit diesem vorbestimmten Verhalten der integrierten Objekte lässt sich eine Methode oder ein Flow auf ein bestimmtes, eindeutiges Verhalten testen.
 
 Unterschieden werden Test Doubles zwischen:
 - Dummies
@@ -141,7 +141,7 @@ ENDCLASS.
 
 ```
 ## Mocks 
-Mock Objekte ermöglichen die Defintion einer Erwartung an den Aufruf von Methoden. Für Methodenaufrufe mit spezifisch definierten Parametern liefern sie eine vordefinierte Antwort zurück. Werden Methoden mit abweichenden Parametern aufgerufen, kommt es im Testfall zu einem Fehler. Mock Objekte sind flexibler einsetzbar als Stubs, weil ihr Verhalten individuell an den Testfall angepasst werden kann. Stubs beinhalten ein starres, vordefiniertes Verhalten. In SAP nutzt man für die Instanziierung von Mock Objekten das TESTDOUBE Framework.
+Mock Objekte ermöglichen die Defintion einer Erwartung an den Aufruf von Methoden. Für Methodenaufrufe mit spezifisch definierten Parametern liefern sie eine vordefinierte Antwort zurück. Werden Methoden mit abweichenden Parametern aufgerufen, kommt es im Testfall zu einem Fehler. Mock Objekte sind flexibler einsetzbar als Stubs, weil ihr Verhalten individuell an den Testfall angepasst werden kann. Stubs beinhalten ein starres, vordefiniertes Verhalten. In SAP nutzt man für die Instanziierung von Mock Objekten gewöhnlich das TESTDOUBE Framework.
 
 **Class under Test:**
 ```js
@@ -232,7 +232,7 @@ ENDCLASS.
 ```
 
 ## Fakes
-Fake Objekte beinhalten eine "abgespeckte" Implementierung der integrierten Objekte, um die CUT betesten zu können. Es handelt sich hierbei um Objekte, die "ausserhalb unserer Reichweite" liegen. In SAP wäre dies beispielsweise das Schreiben des Applikations-Logs oder die Interaktion mit der Datenbank. Fake Objekte können sich wie Dummies, Stubs bzw. Spies oder Mocks verhalten.
+Fake Objekte beinhalten eine "abgespeckte" Implementierung der integrierten Objekte, um die CUT betesten zu können. Es handelt sich hierbei zumeist um Objekte, die "ausserhalb unserer Reichweite" liegen. In SAP wäre dies beispielsweise das Schreiben des Applikations-Logs oder die Interaktion mit der Datenbank. Beides lässt sich im Testfall nicht simulieren, so dass ein Fake Objekt das Schreiben oder Lesen simulieren würde. Fake Objekte können sich wie Dummies, Stubs bzw. Spies oder Mocks verhalten.
 
 **Class Under Test:**
 ```js
