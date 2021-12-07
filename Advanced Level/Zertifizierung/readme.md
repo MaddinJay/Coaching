@@ -357,7 +357,7 @@ Enthaltene Adapter:
 Business-Logik:
  - Klasse ycl_fruits
 
-Die Business-Logik ist für die erste Visualisierung nicht relevant und wird gefakt. Im weiteren Verlauf wird diese TDD-getrieben ausimplementiert. Bei der TDD-Implementierung kann das Prinzip ZOMBIES angewendet werden.
+Die Business-Logik ist für die erste Visualisierung nicht relevant und wird gefakt. Für die Definition der relevanten Ports der Business-Logik wird ein erster Test geschrieben. Im weiteren Verlauf wird die Business-Logik TDD-getrieben weiter implementiert. Bei der TDD-Implementierung kann das Prinzip ZOMBIES angewendet werden. Die User-Side (Eingabemaske und Protokoll) und Server-Side (DB Zugriff) sind in diesem Beispiel so "trivial", dass diese nicht weiter TDD-getrieben getestet werden.  
 
 ```js
 *&---------------------------------------------------------------------*
@@ -429,6 +429,33 @@ CLASS ycl_fruits IMPLEMENTATION.
 
 ENDCLASS.
 
+CLASS ltc_fruits DEFINITION FINAL FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+
+  PRIVATE SECTION.
+    DATA:
+        mo_cut TYPE REF TO ycl_fruits.
+    METHODS:
+      setup,
+      first_integration_test FOR TESTING.
+ENDCLASS.
+
+CLASS ltc_fruits IMPLEMENTATION.
+
+  METHOD setup.
+    mo_cut = NEW #( ).
+  ENDMETHOD.
+
+  METHOD first_integration_test.
+    cl_abap_unit_assert=>assert_equals(
+        exp = VALUE yif_fruits=>tt_fruit( ( name = 'Petersilie' )
+                                          ( name = 'Wirsing' )
+                                          ( name = 'Dill' ) )
+        act = mo_cut->yif_fruits~get_by_vitamin( 'A' ) ).
+  ENDMETHOD.
+
+ENDCLASS.
 
 SELECTION-SCREEN BEGIN OF BLOCK user_interface.
 PARAMETERS: p_vitam TYPE char1.
