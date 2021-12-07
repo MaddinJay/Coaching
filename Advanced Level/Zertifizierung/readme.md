@@ -326,34 +326,123 @@ ENDCLASS.
 
 # Outside-In TDD
 
-Beim Outside-In TDD, auch London School of TDD genannt, geht es darum, von ausserhalb der Business-Logik kommend die am Main-Flow beteiligten Komponenten zu identifzieren und deren Schnittstellen (Ports) zu definieren. Die ausserhalb der Business-Logik liegenden Komponenten werden auch Adapter genannt und können bei defnierten Ports der Business-Logik beliebig ausgetauscht werden. Dies birgt folgende Vorteile:
+Zur Illustration des Aufbaus der Komponenten und deren Beziehung kann das "Hexagonale Architektur - Prinzip" verwendet werden. Dieses Prinzip hat den Vorteil, dass die einzelnen Komponenten "Outside" und "Inside" besser illustriert werden können.
+
+![Hexagonal Architecture](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/Zertifizierung/Hexagonal%20Architecture.png)
+
+Beim Outside-In TDD, auch London School of TDD genannt, geht es darum, von ausserhalb der Business-Logik kommend die am Mainflow beteiligten Komponenten zu identifzieren und deren Schnittstellen (Ports) zu definieren. Die ausserhalb der Business-Logik liegenden Komponenten werden Adapter genannt und können bei defnierten Ports der Business-Logik beliebig ausgetauscht werden. Dies spiegelt eine Asymmetrie zwischen der Business-Logik und den Adaptern wieder. Dieses Vorgehen birgt folgende Vorteile:
 
 - Der User kann schnell Feedback geben. Dies kann bereits am Anfang des Projekts grosse Vorteile, technisch wie phychologisch, bringen.
+- Die Integration der am Mainflow beteiligten Komponenten kann schnell erfolgen.
 - Die integrierten Komponenten (User-Side, Business-Logic und Server-Side) können unabhängig von einander implementiert und getestet werden.
 
-Zur Illustration des Aufbaus der Komponenten und deren Beziehung kann das Hexagonale Architektur - Prinzip verwendet werden. Dieses Prinzip hat den Vorteil, dass die einzelnen Komponenten "Outside" und "Inside" besser illustriert werden können.
-
-Als Ports werden die Schnittstellen bezeichnet, die von von der Business-Logik-Seite definiert werden. Zumeist werden diese Schnittstellen über Interfaces definiert. Als Adapter werden jegliche Komponenten bezeichnet, die an die Ports "angedockt" werden. Für die Komponente der Business-Logik spielt es keine Rolle, wie die Adapter definiert sind. Dies müssen lediglich die Ports richtig bedienen. Dies spiegelt die Asymmetrie im Verhältnis Business-Komponete zu den Adaptern wieder.
-
-AWalking Skeleton noch integrieren. 
+Falls das Bild der einzelnen Komponenten noch nicht geschärft werden kann, kann bei der Defintion des Mainflows von Outside-In ergänzend oder separat das "Walking-Skeleton-Prinzip" verwendet werden. Bei dessen Anwendung geht es darum, die einzelnen Komponenten zu identifizieren und deren Zusammenspiel zu illustrieren. Es wird der Mainflow implementiert, so dass die Integration schnell erfolgt. Die einzelnen Komponenten können dann unabhängig voneinander implementiert und getestet werden. 
 
 ## Ein Beispiel
 
-Als Beispiel sei eine Abfrage von Früchten genannt, die anhand ihrer enthaltenen Vitamine aufgelistet werden.
+Als Beispiel sei eine Abfrage von Früchten genannt, die anhand ihrer enthaltenen Vitamine aufgelistet werden. Der User fragt mit einem Vitamin an und es wird eine Liste von Früchten ausgegeben. Der Einfach halber wird ein Report mit einem Startscreen implementiert, welche ein Protokoll ausgibt.
 
-Der User fragt mit einem Vitamin an und es wird eine Liste von Früchten ausgegeben. Der Einfach halber wird ein Report mit einem Startscreen implementiert, welche ein Protokoll ausgibt.
+![Hexagonal Architecture](https://github.com/MaddinJay/Coaching/blob/main/Advanced%20Level/Zertifizierung/Example%20Outside%20In%20TDD.png)
 
 Die einzelnen Komponenten nehmen die Rollen wie folgt ein:
 
 Enthaltene Ports:
+ - yif_fruits - Schnittstelle User-Side <-> Business-Logik
+ - yif_fruits_dao - Schnittstelle Business-Logik <-> Server-Side
 
 Enthaltene Adapter:
- - User-Side:
- - Server-Side
+ - User-Side: Report
+ - Server-Side: Klasse ycl_fruits_dao
  
 Business-Logik:
+ - Klasse ycl_fruits
 
 Die Business-Logik ist für die erste Visualisierung nicht relevant und wird gefakt. Im weiteren Verlauf wird diese TDD-getrieben ausimplementiert. Bei der TDD-Implementierung kann das Prinzip ZOMBIES angewendet werden.
+
+```js
+*&---------------------------------------------------------------------*
+*& Report y_fruits_catalog
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT y_fruits_catalog NO STANDARD PAGE HEADING.
+
+INTERFACE yif_fruits_dao.
+  TYPES: BEGIN OF ts_fruits,
+           name    TYPE string,
+           vitamin TYPE char1,
+           amount  TYPE curr13_2,
+         END OF ts_fruits,
+         tt_fruits TYPE STANDARD TABLE OF ts_fruits WITH DEFAULT KEY.
+
+  METHODS:
+
+    read RETURNING VALUE(rt_fruits) TYPE REF TO tt_fruits.
+ENDINTERFACE.
+
+CLASS ycl_fruits_dao DEFINITION.
+
+  PUBLIC SECTION.
+    INTERFACES yif_fruits_dao.
+
+ENDCLASS.
+
+CLASS ycl_fruits_dao IMPLEMENTATION.
+
+  METHOD yif_fruits_dao~read.
+
+  ENDMETHOD.
+
+ENDCLASS.
+
+INTERFACE yif_fruits.
+  TYPES: BEGIN OF ts_fruit,
+           name TYPE string,
+         END OF ts_fruit,
+         tt_fruit TYPE STANDARD TABLE OF ts_fruit WITH DEFAULT KEY.
+
+  METHODS:
+    get_by_vitamin IMPORTING iv_vitamin      TYPE char1
+                   RETURNING VALUE(rt_fruit) TYPE tt_fruit.
+ENDINTERFACE.
+
+CLASS ycl_fruits DEFINITION FINAL.
+
+  PUBLIC SECTION.
+    INTERFACES: yif_fruits.
+
+  PRIVATE SECTION.
+    DATA:
+      mo_fruits_dao TYPE REF TO yif_fruits_dao.
+
+ENDCLASS.
+
+CLASS ycl_fruits IMPLEMENTATION.
+
+  METHOD yif_fruits~get_by_vitamin.
+    "DATA(lt_fruits) = mo_fruits_dao->read( ).
+
+    rt_fruit = VALUE #( ( name = 'Petersilie' )
+                        ( name = 'Wirsing' )
+                        ( name = 'Dill' ) ).
+  ENDMETHOD.
+
+ENDCLASS.
+
+
+SELECTION-SCREEN BEGIN OF BLOCK user_interface.
+PARAMETERS: p_vitam TYPE char1.
+SELECTION-SCREEN END OF BLOCK user_interface.
+
+START-OF-SELECTION.
+
+  DATA(lo_fruits) = NEW ycl_fruits( ).
+  DATA(lt_herbs) = lo_fruits->yif_fruits~get_by_vitamin( p_vitam ).
+
+  LOOP AT lt_herbs INTO DATA(ls_fruit).
+    WRITE: / ls_fruit-name.
+  ENDLOOP.
+```
 
 
 
