@@ -3,7 +3,7 @@ In Clean Code Robert C. Martin gives a good overview about what in his opinion c
 the meaning of clean code for functions, class building, unit testing, ... Uncle Bob discuss in his book the meaning of clean code for daily business and for companies. 
 
 # What are the main blocks?
-[integrate mindmap]
+![Summary - Clean Code](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Clean_Code_-_Uncle_Bob_-_Summary.jpeg)
 
 The key learnings from this book are some design principles which are easy to integrate and fundamental for me. These are:
 - Communication: Coding is written for readers, not for self purpose. It should be understandable by "meaningful names", "abstraction" and by avoiding doing several things at a time ("Single Responsible Principle")
