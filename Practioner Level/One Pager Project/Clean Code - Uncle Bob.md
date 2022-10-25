@@ -12,6 +12,6 @@ The key learnings from this book are some design principles which are easy to in
 - Good porgrammers are lookong what are the other good ones are doing and adapt their concepts (4 Rules of Kent Beck)
 
 # My opinion on this book
-Clean code was the first book I read about Clena Code. For the very beginning it helped me to improve my skills with easy to integrate tooling (SRP, DI, DIP, Unit Testing).
-The book is easy to read, but in my opinion the valueable content could be illustrated in a shorter way. Now, as I summarize the content again after 3 years, I think the book
+Clean code was the first book I read about software engineering. It helped me to improve my skills with easy to integrate tools (SRP, DI, DIP, Unit Testing).
+The book is easy to read, although the content could be presented in a shorter way. Now, as I summarize the content again after 3 years, I think the book
 is a good starting point for teaching clean code. It contains a lot of good principles I can integrate in my daily business easily. 
