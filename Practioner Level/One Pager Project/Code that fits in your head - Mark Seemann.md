@@ -4,7 +4,7 @@ that "abstraction" is one of the key elements in building good software. He show
 The book can be understood as a summary of some of the principles we learned in this cocahing program.
 
 # What are the main blocks?
-![Summary - Refactoring](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Refactoring_-_Martin_Fowler_-_Summary.jpg)
+![Summary - Code that fits in your head](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Code_that_fits_in_your_head_-_Summary.jpg)
 
 The key learnings from this book are the importance of reducing complexity in coding. The key learnings are:
 - Focus on "Abstraction": Things that change at the same rate belong together, those which does not, have to be split.
