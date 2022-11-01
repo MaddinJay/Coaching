@@ -1,17 +1,20 @@
 # What is the book about?
-In "A philosophie on software design" John K. Ousterhout describes the nature of complexity and offers techniques to handle and minimize complexity. He offers an overview of "red flags" and "principles". 
+In <strong>A philosophie on software design</strong> <em>John K. Ousterhout</em> describes the <strong>nature of complexity</strong> and offers techniques to handle and minimize complexity. He offers an overview of <strong>red flags</strong> and <strong>design principles</strong>. 
 He recommends using those principles, finding the red flags and focus on learning and finding alternative solutions.
 
 # What are the main blocks?
-![Summary - Clean Code](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Clean_Code_-_Uncle_Bob_-_Summary.jpeg)
+![Design Principles and red flags](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/A_philosophy_on_software_design_-_Design_Principles.jpeg)
 
 The key learnings from this book are some design principles which are easy to integrate and fundamental for me. These are:
-- Communication: Coding is written for readers, not for self purpose. It should be understandable by "meaningful names", "abstraction" and by avoiding doing several things at a time ("Single Responsible Principle")
-- Coding is to be maintained. Use Boy Scout Rule to improve it over and over again.
-- Software is not designed up front, it is a living process. Decision are best made the latest moment in designing, because then the information access is the best.
-- Good porgrammers are lookong what are the other good ones are doing and adapt their concepts (4 Rules of Kent Beck)
+- Focus on <strong>learning</strong>
+- Complexity is caused by dependencies and/or obscurity
+- Break down complexity by finding the <strong>red flags</strong> and erase them
+- Modules should be <strong>deep</strong>, not shallowed: <strong>Simple Interface, a lot of functionality</strong>
+- <strong>Abstraction</strong> is key: Hide information behind simple interfaces
+- Make it <strong>somewhat-general-purpose module</strong>
+- <strong>Communicate well</strong> by using good names (not vague) and comments if needed. Add it immediately, there is no later
+- <strong>Sustainability</strong> is key: Use 10-20% of time for refactoring/redesigning/finding alternative solutions
 
 # My opinion on this book
-Clean code was the first book I read about software engineering. It helped me to improve my skills with easy to integrate tools (SRP, DI, DIP, Unit Testing).
-The book is easy to read, although the content could be presented in a shorter way. Now, as I summarize the content again after 3 years, I think the book
-is a good starting point for teaching clean code. It contains a lot of good principles I can integrate in my daily business easily. 
+In <strong>A philosophie on software design</strong> <em>John K. Ousterhout</em> provides with the decribed design principles and red flags a cook book how to deal with complexity and 
+"smell" code. The book can be used for reviews of existing coding by finding the red flags and trying to eliminate them. The book gives a good summary of a lot of learned principles and techniques in the software engineering coaching program.
