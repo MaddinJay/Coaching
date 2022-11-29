@@ -1,4 +1,4 @@
-# The game with the numbers
+# The game with the primitive objects
 -------- -------- 
 Is 14 a numeric number? 
  - Yes, because as INT1 it is a numeric number.
