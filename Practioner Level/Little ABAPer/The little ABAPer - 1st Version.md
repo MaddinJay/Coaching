@@ -53,6 +53,73 @@ DATA(result) = COND INT1( WHEN m = 0 THEN m + 1
 ```
 Wasn't this easy?
 -------- -------- 
-To be continued...
+Coming back to CURR: Is assignment INT to CURR possible?
+ - For sure. 
+-------- --------
+And the other way round?
+ - For sure, but be aware of lossing the decimal places. If needed use conversion logic for the decimal places.
 
-  
+-------- --------
+Ok, I will be careful. When to use CURR?
+ - For working with currencies
+
+-------- --------
+I always struggle with the digits before the decimal point. How many has CUSS11_2?
+ - 8
+
+-------- --------
+Why?
+ - Length is 11, two digits behind the decimal point, plus decimal point, we have 11 - 2 - 1 = 8.
+
+-------- --------
+Is there something else I have to be aware of, using CURR type?
+ - Japp, in table type declaration we need to set a reference table for the currency.
+
+-------- --------
+Oh wow, that is complicated. Do you know one of them?
+ - Use T001, field WAERS, if no relation with the declared table type existing.
+
+-------- --------
+What is 'A'?
+ - It is a CHAR
+
+-------- --------
+Type used?
+ - CHAR1
+
+-------- --------
+Can I assign 'B', too?
+ - Yes, of course. Any character, even the special ones. 
+
+-------- --------
+Is it case sensitive?
+- Nope. Use TEXT1 if you need small characters, too.
+
+-------- --------
+Do you have a suggesetion for the declaration of "Hello World"?
+- Use TEXT11.
+
+-------- --------
+Is the length dynamic?
+- No, of course not.
+
+-------- --------
+And if I do not know the length in the beginning?
+- Use string.
+
+-------- --------
+I read about strlen, what is it good for?
+- You can use it to detmermine the length of the string.
+
+-------- --------
+And how does it work?
+- ```
+  DATA: lv_string TYPE string VALUE 'This is a test'.
+  DATA(lv_length) = strlen(lv_string).
+  ``` 
+-------- --------
+Nice, result?
+- 13
+-------- --------
+Sure?
+- Of course, do you doubt my abilities? :)
