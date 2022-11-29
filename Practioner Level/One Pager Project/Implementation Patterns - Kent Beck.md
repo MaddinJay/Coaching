@@ -1,17 +1,12 @@
 # What is the book about?
-In Clean Code Robert C. Martin gives a good overview about what in his opinion clean code is about. He introduced with an overview of good code vs. bad code and then goes deeper into
-the meaning of clean code for functions, class building, unit testing, ... Uncle Bob discuss in his book the meaning of clean code for daily business and for companies. 
+In Implementation Patterns Kent Beck decribes the use of Design Patterns as common communication basic. Patterns are used to structure coding and to save money and energy. These patterns are motivated by the idea of reducing maintanance costs and they are based on programming principles.  
 
 # What are the main blocks?
-![Summary - Clean Code](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Clean_Code_-_Uncle_Bob_-_Summary.jpeg)
+![Summary - Implementation Patterns](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Implementation%20Patterns%20-%20Summary.PNG)
 
-The key learnings from this book are some design principles which are easy to integrate and fundamental for me. These are:
-- Communication: Coding is written for readers, not for self purpose. It should be understandable by "meaningful names", "abstraction" and by avoiding doing several things at a time ("Single Responsible Principle")
-- Coding is to be maintained. Use Boy Scout Rule to improve it over and over again.
-- Software is not designed up front, it is a living process. Decision are best made the latest moment in designing, because then the information access is the best.
-- Good porgrammers are lookong what are the other good ones are doing and adapt their concepts (4 Rules of Kent Beck)
+The key learning of this book is that there is a "ton of implementation patterns" which can be used to structure coding and to reduce maintanance costs. Additionally the learnings are:
+- The fundamental principles: Local consequences, no repitition, symmetrie
+- Use common communication tools to save energy and time
 
 # My opinion on this book
-Clean code was the first book I read about software engineering. It helped me to improve my skills with easy to integrate tools (SRP, DI, DIP, Unit Testing).
-The book is easy to read, although the content could be presented in a shorter way. Now, as I summarize the content again after 3 years, I think the book
-is a good starting point for teaching clean code. It contains a lot of good principles I can integrate in my daily business easily. 
+This book is a powerful encyclopedie for implementation/design patterns. It solves as reference book. Kent Beck presents a lot of patterns and programming tipps and tricks which can be integrated in daily business. Have it at the fingertips. 
