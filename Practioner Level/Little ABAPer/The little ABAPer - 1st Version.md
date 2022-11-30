@@ -1,3 +1,9 @@
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+
 # The game with the primitive objects
 -------- -------- 
 Is 14 a numeric number? 
@@ -123,3 +129,11 @@ Nice, result?
 -------- --------
 Sure?
 - Of course, do you doubt my abilities? :)
+
+
+
+| Time         | Length        | Speed              | Mass         |
+| ------------ | ------------- | ------------------ | ------------ |
+| -Millisecond | Millimetre    | Kilometre per hour | Milligram    |
+| Second       | Centimetre    | Foot per second    | Gram         |
+| Minute       | Inch          | Miles per hour     | Ounce        |
