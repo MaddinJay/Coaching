@@ -5,7 +5,7 @@ and gives an overview of some principles, which are helpful to structure coding 
 # What are the main blocks?
 ![The Agile Manifesto](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Chapter%201%20-%20Agile%20Development.pdf)
 
-![Extreme Programming](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Chapter%201%20-%20Agile%20Development.pdf)
+![Extreme Programming](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Chapter%202%20-%20Principles%20of%20Extreme%20Programming.pdf)
 
 The key learnings from this book are The Agile Manisto and the interpretation of agile development and extreme programming in daily business. My learnings are:
 - Keeping the 4 principles from the Manifesto makes daily business much more robust and flexible.
