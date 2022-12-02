@@ -3,7 +3,9 @@ In Agile Software Development Robert C. Martin describes the root of Agile Devel
 and gives an overview of some principles, which are helpful to structure coding and being flexible.
 
 # What are the main blocks?
-![Summary - Clean Code](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Clean_Code_-_Uncle_Bob_-_Summary.jpeg)
+![The Agile Manifesto](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Chapter%201%20-%20Agile%20Development.pdf)
+
+![Extreme Programming](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Chapter%201%20-%20Agile%20Development.pdf)
 
 The key learnings from this book are The Agile Manisto and the interpretation of agile development and extreme programming in daily business. My learnings are:
 - Keeping the 4 principles from the Manifesto makes daily business much more robust and flexible.
