@@ -64,24 +64,59 @@
 |  You    | Code      |  Me      |
 | ------------ | ------------- | ------------------ | 
 |Ah nice. I got the idea. What is <value> in?|||
+        
 ```
   FIELD-SYMBOLS: <value> TYPE INT1.
   DATA(var) = 2.
   ASSIGN var TO <value>.
 ``` 
+        
 |  You    | Code      |  Me      |
 | ------------ | ------------- | ------------------ | 
 |||It is 2. But why do you not set simply: <value> = var, or much easies FIELD-SYMBOLS(<value>) = 2?|
 | Good question, still to learn ...|||
 | There is a more generic way to make an assignment?|| Yes, there is.|
-|  You    | Code      |  Me      |
-| ------------ | ------------- | ------------------ | 
+
 ```
   ASSIGN COMPONENT 'FIELD1' OF STRUCTURE <structure> TO <value>
 ``` 
+        
 |  You    | Code      |  Me      |
 | ------------ | ------------- | ------------------ | 
 | And if the assignment does not work? || Hard dump. Check "IS ASSIGNED" before working with the FIELD-SYMBOL.|
 | And how to cut the assignment? || Use UNASSIGN <value> |
 | Anything else to be aware of? || If assignment still living and you change the field symbol value, you change the value in the source, too. |
+| I saw this wired example of APPENDING first and then changing values in tables?|| Oh yeah, it confused me everytime the same. |
+
+```
+  APPEND INITIAL LINE TO itab ASSIGNING <structure>
+``` 
+
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
+| Isn't this wired? || Japp, no worries, I do not use it often. |
+| Coming to objects: When to use REF TO | | We use it to create reference types of objects or data. |
+| And how?| | |
+
+```
+  DATA: lo_object TYPE REF TO cl_object.
+``` 
+
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
+| Ah ok, for class objects. And instanciation, how is it done? || Let me show you. |
+        
+```
+  DATA: lo_object TYPE REF TO cl_object.
+  lo_object = new #( ).
+  or
+  CREATE OBJECT lo_object TYPE cl_object.
+``` 
+
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
+| The second one makes my eyes pain :) || |
+| Still have some questions about CASTING, REF TO DATA, and working with references in methods signature. But for the moment I am fine. I let you go to my colleague. He has ore questions for you :) | | |
 -------- --------
+
+... to be continued: CASTING, DATA references
