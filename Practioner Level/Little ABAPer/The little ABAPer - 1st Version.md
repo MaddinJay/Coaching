@@ -52,5 +52,28 @@
 | ------------ | ------------- | ------------------ | 
 | Nice, result? | | 13 |
 | Sure? | | Of course, do you doubt my abilities? :) |
-
+| Coming back to this thing with assigments: Is there another way, make assignments, instead of using values? | | Japp, with field symbols. |
+| How can I declare them? | |FIELD-SYMBOLS <fs> TYPE CHAR1 |
+| When do we use them? What is the advantage? || By assigning we are changing entries in the root source. Or use them for casting. |
+| Do you have an coding example? |||
+```
+  LOOP AT itab ASSIGNING FIELD-SYMBOL(<fs>).
+    <fs>-field1 = 'Test'.
+  ENDLOOP.
+``` 
+|Ah nice. I got the idea. What is <value> in?|||
+```
+  FIELD-SYMBOLS: <value> TYPE INT1.
+  DATA(var) = 2.
+  ASSIGN var TO <value>.
+``` 
+|||It is 2. But why do you not set simply: <value> = var, or much easies FIELD-SYMBOLS(<value>) = 2?|
+| Good question, still to learn ...|||
+| There is a more generic way to make an assignment?|| Yes, there is.|
+```
+  ASSIGN COMPONENT 'FIELD1' OF STRUCTURE <structure> TO <value>
+``` 
+| And if the assignment does not work? || Hard dump. Check "IS ASSIGNED" before working with the FIELD-SYMBOL.|
+| And how to cut the assignment? || Use UNASSIGN <value> |
+| Anything else to be aware of? || If assignment still living and you change the field symbol value, you change the value in the source, too. |
 -------- --------
