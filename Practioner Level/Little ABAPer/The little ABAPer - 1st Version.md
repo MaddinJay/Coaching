@@ -61,18 +61,26 @@
     <fs>-field1 = 'Test'.
   ENDLOOP.
 ``` 
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
 |Ah nice. I got the idea. What is <value> in?|||
 ```
   FIELD-SYMBOLS: <value> TYPE INT1.
   DATA(var) = 2.
   ASSIGN var TO <value>.
 ``` 
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
 |||It is 2. But why do you not set simply: <value> = var, or much easies FIELD-SYMBOLS(<value>) = 2?|
 | Good question, still to learn ...|||
 | There is a more generic way to make an assignment?|| Yes, there is.|
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
 ```
   ASSIGN COMPONENT 'FIELD1' OF STRUCTURE <structure> TO <value>
 ``` 
+|  You    | Code      |  Me      |
+| ------------ | ------------- | ------------------ | 
 | And if the assignment does not work? || Hard dump. Check "IS ASSIGNED" before working with the FIELD-SYMBOL.|
 | And how to cut the assignment? || Use UNASSIGN <value> |
 | Anything else to be aware of? || If assignment still living and you change the field symbol value, you change the value in the source, too. |
