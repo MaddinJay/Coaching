@@ -2,7 +2,7 @@
 In <strong>Working effectively with legacy code</strong> <em>Michael Feathers</em> presents useful techniques to handle code adjustments in legacy code. Michael explains the techniques "Sensing and Separation" and "Seams" and all some useful tipps to deal with legacy code. 
 
 # What are the main blocks?
-![Summary Working effectively with legacy code]()
+![Summary Working effectively with legacy code](https://github.com/MaddinJay/Coaching/blob/main/Practioner%20Level/One%20Pager%20Project/Images/Working_Effectively_with_Legacy_Code.jpeg)
 
 The key learnings from this book are useful techniques which can be used if coding have to be adjust. These are:
 - Extract what you know
