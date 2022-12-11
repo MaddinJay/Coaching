@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>YMJ_COACHING</ARBGB>
+    <MASTERLANG>D</MASTERLANG>
+    <STEXT>Coaching MJ</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Klasse existiert nicht.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Zahl &amp;1 ungültig. Bitte gültige Zahl eingeben (grösser Null).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Florin ist &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Raise wird nicht ausgeführt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Raise wird ausgeführt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Zahl &amp;1 ist ungültig. Bitte Zahlen grösser 0 eingeben.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Overflow bei Berechnung Rechte Zahl in Numbers-Table.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Knoten &quot;&amp;1&quot; existiert in der Liste nicht.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>YMJ_COACHING</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Queue is empty. Nothing to dequeue.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
